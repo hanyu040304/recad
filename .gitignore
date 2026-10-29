@@ -1,0 +1,10 @@
+.DS_Store
+__pycache__/
+*.py[cod]
+.venv/
+*.f3d
+*.f3z
+*.step
+*.stp
+*.pdf
+*.zip

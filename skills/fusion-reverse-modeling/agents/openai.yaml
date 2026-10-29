@@ -1,0 +1,4 @@
+interface:
+  display_name: "Fusion Reverse Modeling"
+  short_description: "Reconstruct Fusion models from drawings or calibrated photos"
+  default_prompt: "Use $fusion-reverse-modeling to reconstruct this product in Autodesk Fusion, prioritizing official sources and recording evidence for critical dimensions."

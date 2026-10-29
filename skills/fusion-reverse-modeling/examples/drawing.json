@@ -1,0 +1,53 @@
+{
+  "schema_version": 1,
+  "model": "Example Instrument A / revision 1",
+  "sources": [
+    {
+      "id": "D1",
+      "kind": "drawing",
+      "model_match": "exact",
+      "dimensioned": true,
+      "locator": "Synthetic drawing, sheet 1, W and ring-centre callouts"
+    }
+  ],
+  "features": [
+    {
+      "id": "case_width",
+      "critical": true,
+      "basis": "dimensioned",
+      "source_ids": [
+        "D1"
+      ],
+      "target_mm": 70,
+      "source_tolerance_mm": 0.05,
+      "verification_tolerance_mm": 0.001,
+      "cad_measurement": {
+        "value_mm": 70,
+        "method": "brep",
+        "locator": "Case:1, opposed planar faces"
+      }
+    },
+    {
+      "id": "ring_centre_x",
+      "critical": true,
+      "basis": "dimensioned",
+      "source_ids": [
+        "D1"
+      ],
+      "target_mm": 18,
+      "verification_tolerance_mm": 0.001,
+      "cad_measurement": {
+        "value_mm": 18,
+        "method": "brep",
+        "locator": "Ring:1, cylinder axis relative to front lower-left datum"
+      }
+    },
+    {
+      "id": "ring_chamfer",
+      "critical": true,
+      "basis": "unknown",
+      "source_ids": [],
+      "reason": "No dimensioned section or edge-treatment callout"
+    }
+  ]
+}

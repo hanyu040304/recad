@@ -1,0 +1,39 @@
+{
+  "schema_version": 1,
+  "model": "Example Notebook 14 / 2024 / base variant",
+  "sources": [
+    {
+      "id": "P1",
+      "kind": "official_photo",
+      "model_match": "exact",
+      "dimensioned": false,
+      "locator": "Synthetic side-photo fixture; calibration plane YZ"
+    }
+  ],
+  "features": [
+    {
+      "id": "port_from_rear",
+      "critical": true,
+      "basis": "photo",
+      "source_ids": [
+        "P1"
+      ],
+      "target_mm": 20,
+      "uncertainty_mm": 0.5,
+      "uncertainty_method": "Illustrative combined budget; not a real product measurement",
+      "verification_tolerance_mm": 0.01,
+      "cad_measurement": {
+        "value_mm": 20,
+        "method": "brep",
+        "locator": "Base:1, port centre to rear datum"
+      }
+    },
+    {
+      "id": "hinge_hidden_axis",
+      "critical": true,
+      "basis": "unknown",
+      "source_ids": [],
+      "reason": "Not identifiable from available views"
+    }
+  ]
+}
