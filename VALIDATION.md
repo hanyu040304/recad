@@ -29,3 +29,9 @@ The skill instructions and executable helper are unchanged from version 0.1.0. T
 Re-ran `python3 -m unittest discover -s tests -v` under Python 3.9.6: **23 tests passed**. The stock skill-creator validator still cannot run because PyYAML is absent in both system Python and the available bundled Python 3.12.14. This is a validator dependency, not a runtime dependency of the skill. Publication status is reported separately; a clone URL in the README does not establish that the remote repository exists.
 
 Independently checked YAML syntax and the validator's metadata/name/description/scaffold requirements with Ruby Psych, plus UI invocation metadata, JSON syntax, UTF-8 text, local Markdown references, and distribution content. Copied the standalone skill into a temporary installation and ran both documented helper commands there; audit returned the expected unresolved-item code 2 and calibration returned 0. These checks establish package portability for the helper, not live Fusion compatibility.
+
+## ReCAD presentation — version 0.1.1
+
+Renamed the project display name to ReCAD. The existing `fusion-reverse-modeling` skill identifier and directory remain compatible. The README and examples now describe general product reconstruction, with Autodesk Fusion explicitly identified as the current execution environment. Detailed usage moved to `docs/usage.md`; the new SVG illustrates a synthetic mounting bracket, not a measured manufacturer product. Helper code is unchanged.
+
+Re-ran all 23 helper tests and checked skill/UI YAML metadata, local Markdown references, JSON and SVG syntax. Rendered the README at desktop and mobile widths; neither preview had horizontal page overflow. The stock PyYAML-dependent validator remains unavailable as noted above. These are documentation/package checks, not a new end-to-end Fusion reconstruction test.

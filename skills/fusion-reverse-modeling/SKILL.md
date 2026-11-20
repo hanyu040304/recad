@@ -3,9 +3,9 @@ name: fusion-reverse-modeling
 description: Use when reconstructing a real product in Autodesk Fusion (Fusion 360) from engineering drawings, dimensions, or photographs, including accurate external geometry, port placement, assemblies, and corrections to an existing reconstruction. Also use for 精准逆向建模、按工程图建模、照片建模、整机还原.
 ---
 
-# Fusion Reverse Modeling
+# ReCAD
 
-Reconstruct the observed product. Every critical dimension needs evidence; a working mechanism does not establish an authentic mechanism.
+Reconstruct real products from evidence: mechanical parts, housings, consumer products, and assemblies. Autodesk Fusion is the current execution environment. Every critical dimension needs evidence; a working mechanism does not establish an authentic mechanism.
 
 ## Select the evidence route
 
