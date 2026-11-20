@@ -21,3 +21,11 @@ YAML syntax and metadata checked with Ruby Psych plus explicit field/name/length
 ## Not verified in this release
 
 No new end-to-end Fusion build, visual overlay, actual joint motion, native export or STEP round-trip was performed while packaging this skill. Earlier project experience motivated the workflow, but is not a test of this published package. Live connector/computer-control availability, Fusion versions, product geometry and reference quality vary. Test these in the target environment and retain the measured evidence before making a fidelity claim.
+
+## Sharing preparation — 2026-11-20
+
+The skill instructions and executable helper are unchanged from version 0.1.0. The Chinese README now includes a workflow summary, the intended GitHub clone URL, and macOS/Linux/Windows installation examples.
+
+Re-ran `python3 -m unittest discover -s tests -v` under Python 3.9.6: **23 tests passed**. The stock skill-creator validator still cannot run because PyYAML is absent in both system Python and the available bundled Python 3.12.14. This is a validator dependency, not a runtime dependency of the skill. Publication status is reported separately; a clone URL in the README does not establish that the remote repository exists.
+
+Independently checked YAML syntax and the validator's metadata/name/description/scaffold requirements with Ruby Psych, plus UI invocation metadata, JSON syntax, UTF-8 text, local Markdown references, and distribution content. Copied the standalone skill into a temporary installation and ran both documented helper commands there; audit returned the expected unresolved-item code 2 and calibration returned 0. These checks establish package portability for the helper, not live Fusion compatibility.

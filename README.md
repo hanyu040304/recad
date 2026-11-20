@@ -4,6 +4,23 @@
 
 An evidence-driven product reconstruction skill for Autodesk Fusion: dimensioned drawings or official research plus calibrated photographs. English skill instructions; Chinese usage guide below.
 
+## 一句话总结
+
+把产品逆向建模整理成一条可复用的流程：**确定型号 → 收集尺寸证据 → 建立参数与组件 → 在 Fusion 中建模 → 核对最终实体与参考图 → 交付可编辑模型和验证记录**。
+
+适合把手机、电脑、外壳等真实产品从工程图或照片还原成 CAD，也适合只修正现有模型的指定细节。它是给 AI 代理使用的工作方法与辅助工具，不是输入一张图片就能自动生成精确模型的软件。
+
+## 工作流总览
+
+| 阶段 | 具体做什么 | 留下什么 |
+|---|---|---|
+| 识别产品 | 确认型号、年份、版本、姿态、单位和坐标方向 | 明确的建模范围与基准 |
+| 整理证据 | 有图纸读尺寸、剖面和公差；无图纸先查官方资料，再标定多视图照片 | 来源台账、尺寸表、估算与未知项 |
+| 建立结构 | 先做外轮廓、主要截面和关键接口，再补局部细节 | 可编辑参数、组件和特征 |
+| 在 Fusion 中执行 | 使用环境实际提供的 API、连接器或电脑控制能力 | 原生 CAD 模型与操作记录 |
+| 分项验证 | 独立测量最终 BRep、对照同视角参考图，另做装配和导出检查 | 当前版本的检查结果与未解决项 |
+| 交付 | 保存原生设计、所需交换格式、对比视图和证据记录 | 可继续修改、可追溯的成果 |
+
 ## 它解决什么
 
 有工程图时，读取尺寸、基准、剖面与公差，先建立外轮廓和关键接口，再做细节；未标注的倒角不会被当成已验证尺寸。
@@ -16,14 +33,30 @@ An evidence-driven product reconstruction skill for Autodesk Fusion: dimensioned
 
 需要可使用 Skill 的代理环境，以及可控制的 Autodesk Fusion。此包**不包含 Fusion 控制插件或通用建模引擎**：代理使用当前环境已有的连接器/API，或电脑控制工具与 Fusion 原生 Python 控制台。辅助脚本只需要 Python 3.9+，无第三方依赖。
 
-将 `skills/fusion-reverse-modeling` 整个文件夹复制到代理配置的 skills 目录。以本机 Codex 的个人目录为例，在仓库根目录运行：
+先获取这个公开仓库：
+
+```sh
+git clone https://github.com/hanyu040304/fusion-reverse-modeling.git
+cd fusion-reverse-modeling
+```
+
+也可以在 GitHub 仓库页面选择 **Code → Download ZIP**，解压后打开仓库目录。
+
+将 `skills/fusion-reverse-modeling` 整个文件夹复制到代理配置的 skills 目录。以 macOS / Linux 上 Codex 的个人目录为例，在仓库根目录运行；已有同名技能时先比较内容或备份，避免覆盖自己的修改：
 
 ```sh
 mkdir -p ~/.codex/skills
 cp -R skills/fusion-reverse-modeling ~/.codex/skills/
 ```
 
-如果你的客户端使用 `~/.agents/skills` 或项目内 `.agents/skills`，复制到对应目录即可。已有同名安装时先比较版本，不要盲目覆盖。重新加载 Skill 或打开新对话后，用下面的名称调用。
+Windows PowerShell（同样先检查有无同名安装）：
+
+```powershell
+New-Item -ItemType Directory -Force "$env:USERPROFILE\.codex\skills" | Out-Null
+Copy-Item -Recurse .\skills\fusion-reverse-modeling "$env:USERPROFILE\.codex\skills\"
+```
+
+如果你的客户端使用 `~/.agents/skills` 或项目内 `.agents/skills`，复制到对应目录即可。重新加载 Skill 或打开新对话后，用下面的名称调用。公开仓库网址可直接发给使用者，安装时只需复制技能子目录，无需复制整套测试记录。
 
 ## 用法
 
